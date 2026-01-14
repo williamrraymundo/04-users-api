@@ -13,3 +13,9 @@ function validate(body, { partial = false } = {}) {
       errors.push("name must have at least 2 characters");
     }
   }
+  if (!partial || body.email !== undefined) {
+    if (typeof body.email !== "string" || !EMAIL_RE.test(body.email)) {
+      errors.push("email is invalid");
+    }
+  }
+  return errors;
