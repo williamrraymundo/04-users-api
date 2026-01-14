@@ -23,3 +23,10 @@ function validate(body, { partial = false } = {}) {
 
 app.use((req, _res, next) => {
   console.log(`${new Date().toISOString()} ${req.method} ${req.url}`);
+  next();
+});
+
+app.get("/health", (_req, res) => res.json({ status: "ok" }));
+
+app.get("/users", (_req, res) => res.json(store.list()));
+
