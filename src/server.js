@@ -19,3 +19,7 @@ function validate(body, { partial = false } = {}) {
     }
   }
   return errors;
+}
+
+app.use((req, _res, next) => {
+  console.log(`${new Date().toISOString()} ${req.method} ${req.url}`);
