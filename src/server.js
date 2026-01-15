@@ -33,3 +33,11 @@ app.get("/users", (_req, res) => res.json(store.list()));
 app.get("/users/:id", (req, res) => {
   const user = store.find(Number(req.params.id));
   if (!user) return res.status(404).json({ error: "User not found" });
+  res.json(user);
+});
+
+app.post("/users", (req, res) => {
+  const errors = validate(req.body);
+  if (errors.length) return res.status(400).json({ errors });
+  res.status(201).json(store.create(req.body));
+});
