@@ -30,3 +30,6 @@ app.get("/health", (_req, res) => res.json({ status: "ok" }));
 
 app.get("/users", (_req, res) => res.json(store.list()));
 
+app.get("/users/:id", (req, res) => {
+  const user = store.find(Number(req.params.id));
+  if (!user) return res.status(404).json({ error: "User not found" });
