@@ -41,3 +41,7 @@ app.post("/users", (req, res) => {
   if (errors.length) return res.status(400).json({ errors });
   res.status(201).json(store.create(req.body));
 });
+
+app.put("/users/:id", (req, res) => {
+  const errors = validate(req.body, { partial: true });
+  if (errors.length) return res.status(400).json({ errors });
