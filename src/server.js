@@ -45,3 +45,7 @@ app.post("/users", (req, res) => {
 app.put("/users/:id", (req, res) => {
   const errors = validate(req.body, { partial: true });
   if (errors.length) return res.status(400).json({ errors });
+  const user = store.update(Number(req.params.id), req.body);
+  if (!user) return res.status(404).json({ error: "User not found" });
+  res.json(user);
+});
