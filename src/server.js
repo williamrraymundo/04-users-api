@@ -52,3 +52,11 @@ app.put("/users/:id", (req, res) => {
 
 app.delete("/users/:id", (req, res) => {
   const removed = store.remove(Number(req.params.id));
+  if (!removed) return res.status(404).json({ error: "User not found" });
+  res.status(204).end();
+});
+
+app.use((_req, res) => res.status(404).json({ error: "Route not found" }));
+
+const PORT = process.env.PORT || 3000;
+if (require.main === module) {
