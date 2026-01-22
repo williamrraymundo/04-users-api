@@ -60,3 +60,7 @@ app.use((_req, res) => res.status(404).json({ error: "Route not found" }));
 
 const PORT = process.env.PORT || 3000;
 if (require.main === module) {
+  app.listen(PORT, () => console.log(`Users API listening on http://localhost:${PORT}`));
+}
+
+module.exports = app;
