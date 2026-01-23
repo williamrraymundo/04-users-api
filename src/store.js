@@ -12,3 +12,9 @@ function writeAll(users) {
   fs.writeFileSync(DATA_FILE, JSON.stringify(users, null, 2));
 }
 
+function nextId(users) {
+  return users.reduce((max, u) => Math.max(max, u.id), 0) + 1;
+}
+
+function list() {
+  return readAll();
