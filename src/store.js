@@ -18,3 +18,9 @@ function nextId(users) {
 
 function list() {
   return readAll();
+}
+
+function find(id) {
+  return readAll().find((u) => u.id === id);
+}
+
