@@ -24,3 +24,9 @@ function find(id) {
   return readAll().find((u) => u.id === id);
 }
 
+function create({ name, email }) {
+  const users = readAll();
+  const user = { id: nextId(users), name, email, createdAt: new Date().toISOString() };
+  users.push(user);
+  writeAll(users);
+  return user;
