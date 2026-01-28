@@ -30,3 +30,9 @@ function create({ name, email }) {
   users.push(user);
   writeAll(users);
   return user;
+}
+
+function update(id, fields) {
+  const users = readAll();
+  const index = users.findIndex((u) => u.id === id);
+  if (index === -1) return null;
