@@ -36,3 +36,6 @@ function update(id, fields) {
   const users = readAll();
   const index = users.findIndex((u) => u.id === id);
   if (index === -1) return null;
+  users[index] = { ...users[index], ...fields, id };
+  writeAll(users);
+  return users[index];
