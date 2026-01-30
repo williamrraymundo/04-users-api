@@ -39,3 +39,6 @@ function update(id, fields) {
   users[index] = { ...users[index], ...fields, id };
   writeAll(users);
   return users[index];
+}
+
+function remove(id) {
