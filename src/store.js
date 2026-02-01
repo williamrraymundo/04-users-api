@@ -42,3 +42,8 @@ function update(id, fields) {
 }
 
 function remove(id) {
+  const users = readAll();
+  const next = users.filter((u) => u.id !== id);
+  if (next.length === users.length) return false;
+  writeAll(next);
+  return true;
