@@ -23,3 +23,7 @@ npm start
 curl -X POST localhost:3000/users -H "Content-Type: application/json" -d '{"name":"Ada","email":"ada@example.com"}'
 curl localhost:3000/users
 ```
+
+## License
+
+MIT © William Raymundo
