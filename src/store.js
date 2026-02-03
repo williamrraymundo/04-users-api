@@ -47,3 +47,6 @@ function remove(id) {
   if (next.length === users.length) return false;
   writeAll(next);
   return true;
+}
+
+module.exports = { list, find, create, update, remove };
